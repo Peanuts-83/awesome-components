@@ -1,0 +1,12 @@
+mat-card
+  mat-card-header
+    mat-card-title
+      span(highlight, color='lightblue') {{post.title | titlecase}}
+    mat-card-subtitle
+      span {{post.createdDate | timeAgo}}
+      em  ({{post.createdDate | date}})
+  mat-card-content
+    img(mat-card-image, *ngIf='post.imageUrl as imgUrl', [src]='imgUrl', [alt]='post.title')
+    span.post-content {{post.content | shorten: 250}}
+  .comments
+    app-comments(*ngIf='post.comments as comments', [comments]='comments', (newComment)='onNewComment($event)')

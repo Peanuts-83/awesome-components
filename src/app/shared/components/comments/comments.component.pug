@@ -1,0 +1,12 @@
+.comments-row
+  mat-form-field
+    input(matInput, type='text', placeholder='Laissez un commentaire', [formControl]='commentCtrl')
+  button(mat-icon-button, color='primary', (click)='onLeaveComment()')
+    mat-icon send
+h4(*ngIf='comments.length') Commentaires
+.ngcontainer(*ngIf='comments.length')
+  ul(@list)
+    li(*ngFor='let comment of comments; let id = index', [title]='comment.userId', [@listItem]='animationStates[id]', (mouseenter)='onListItemMouseEnter(id)', (mouseleave)='onListItemMouseLeave(id)')
+      span.text() {{comment.comment}}
+      span.date {{comment.createdDate | timeAgo}}
+      hr

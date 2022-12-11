@@ -1,0 +1,37 @@
+.comments-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+h4 {
+  font-weight: bold;
+  color: grey;
+}
+
+.date {
+  font-style: italic;
+  font-size: smaller;
+  // color: grey;
+}
+
+hr {
+  color: violet;
+  margin: 0;
+}
+
+li {
+  padding-top: 10px;
+  .text, .date {
+    padding-left: 15px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,18 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+}
+
+li {
+  display: inline-block;
+  font-size: medium;
+  margin: 0 20px;
+}
