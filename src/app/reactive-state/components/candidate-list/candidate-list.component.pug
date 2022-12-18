@@ -1,0 +1,17 @@
+.container
+  mat-card.main-list
+    mat-card-title-group
+      mat-card-title Candidats
+      .search-fields
+        mat-form-field(appearance='fill')
+          input(matInput, type='text', [formControl]='searchCtl', placeholder='Recherche')
+          mat-icon(matSuffix) search
+        mat-form-field(appearance='fill')
+          mat-select([formControl]='searchTypeCtl')
+            mat-option(*ngFor='let option of searchTypeOptions', [value]='option.value') {{option.label}}
+    mat-spinner(*ngIf='loading$ | async')
+    mat-nav-list(*ngIf='candidates$ | async as candidates')
+      a(*ngFor='let candidate of candidates', mat-list-item, [routerLink]='candidate.id.toString()')
+        img([src]='candidate.imageUrl', [alt]='candidate.lastName', [title]='candidate.firstName')
+        h3(mat-line) {{candidate.firstName}} {{candidate.lastName}} - {{candidate.department}}
+        p(mat-line) {{candidate.job}} chez {{candidate.company}}
