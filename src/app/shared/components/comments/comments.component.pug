@@ -1,0 +1,7 @@
+mat-list
+  h4(matSubheader) Commentaires
+  mat-list-item(*ngFor='let comment of comments')
+    span(mat-line)
+      .comment {{comment.comment}}
+    span(mat-line)
+      .date {{comment.createdDate | date}}

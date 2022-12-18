@@ -1,2 +1,9 @@
 mat-card
-  span {{post.title}}
+  mat-card-header
+    mat-card-title {{post.title | titlecase}}
+    mat-card-subtitle {{post.createdDate | date}}
+  mat-card-content
+    img(*ngIf='post.imageUrl', [src]='post.imageUrl', [alt]='post.title')
+    .post-content {{post.content}}
+    ng-container(*ngIf='post.comments.length')
+      app-comments([comments]='post.comments')
